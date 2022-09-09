@@ -62,6 +62,7 @@ public class Clock extends SettingsPreferenceFragment implements
     private static final String CLOCK_DATE_POSITION = "status_bar_clock_date_position";
     private static final String CLOCK_DATE_STYLE = "status_bar_clock_date_style";
     private static final String CLOCK_DATE_FORMAT = "status_bar_clock_date_format";
+    private static final String PREF_CLOCK_BG = "statusbar_clock_chip";
 
     private static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     private static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
@@ -73,6 +74,7 @@ public class Clock extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mClockDatePosition;
     private SystemSettingListPreference mClockDateStyle;
     private ListPreference mClockDateFormat;
+    private SystemSettingSwitchPreference mStatusBarClockBG;
 
 
     @Override
@@ -122,6 +124,11 @@ public class Clock extends SettingsPreferenceFragment implements
         parseClockDateFormats();
         mClockDateFormat.setEnabled(dateDisplay > 0);
         mClockDateFormat.setOnPreferenceChangeListener(this);
+        
+        mStatusBarClockBG = (SystemSettingSwitchPreference) findPreference(PREF_CLOCK_BG);
+        mStatusBarClockBG.setChecked((Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.STATUSBAR_CLOCK_CHIP, 1) == 1));
+        mStatusBarClockBG.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -191,7 +198,12 @@ public class Clock extends SettingsPreferenceFragment implements
                 }
             }
             return true;
-        }
+        }else if (preference == mStatusBarClockBG) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_CLOCK_CHIP, value ? 1 : 0);
+            return true;
+      }
         return false;
     }
 

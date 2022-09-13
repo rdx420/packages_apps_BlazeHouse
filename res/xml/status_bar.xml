@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  Copyright (C) 2017 The Dirty Unicorns Project
-
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
-
   This program is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
-
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
@@ -139,26 +136,6 @@
             android:key="battery_level_colors"
             android:title="@string/battery_level_colors_title"
             android:summary="@string/battery_level_colors_summary"
-            android:defaultValue="false" />
-
-    <PreferenceCategory
-        android:key="statusbar_padding"
-        android:title="@string/statusbar_padding" >
-
-        <com.blaze.house.preferences.SystemSettingSeekBarPreference
-            android:key="statusbar_left_padding"
-            android:title="@string/statusbar_left_padding"
-            android:max="50"
-            settings:min="0"
-            android:defaultValue="2"/>
-
-        <com.blaze.house.preferences.SystemSettingSeekBarPreference
-            android:key="statusbar_right_padding"
-            android:title="@string/statusbar_right_padding"
-            android:max="50"
-            settings:min="0"
-            android:defaultValue="2"/>
-
-    </PreferenceCategory>       
+            android:defaultValue="false" />     
 
 </PreferenceScreen>

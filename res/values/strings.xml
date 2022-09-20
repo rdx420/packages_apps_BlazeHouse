@@ -486,4 +486,9 @@
     <string name="ticker_animation_mode_alpha_fade">Fade</string>
     <string name="ticker_animation_mode_scroll">Scroll</string>
     <string name="ticker_tick_duration_title">Ticker duration</string>
+    
+    <!-- Custom settings dashboard style -->
+    <string name="settings_dashboard_style_title">Settings Styles</string>
+    <string name="settings_dashboard_style_1">Old UI</string>
+    <string name="settings_dashboard_style_2">New UI</string>
 </resources>
